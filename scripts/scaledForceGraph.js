@@ -45,7 +45,7 @@ var width = 800;
       link.exit().remove();
 
       // Enter any new links.
-      link.enter().insert("line")
+      link.enter().insert("line", ".node")
           .attr("class", function(d){
             return d.source.name == "flare" ? "" : "link";
           })
@@ -55,7 +55,9 @@ var width = 800;
           .attr("y2", function(d) { return d.target.y; });
 
       // Update the nodes…
-      node = node.data(nodes, function(d) { return d.id; });
+      node = node.data(nodes, function(d) { 
+        return d.id; 
+      }).style("fill", color);
 
       // Exit any old nodes.
       node.exit().remove();
