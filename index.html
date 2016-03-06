@@ -30,10 +30,9 @@
     function update() {
       var nodes = flatten(root);
       var links = d3.layout.tree().links(nodes);
-      var minNode = d3.min(nodes, function(d) { return d.size; });
-      var maxNode = d3.max(nodes, function(d) { return d.size; });
-      var scale = d3.scale.linear().domain([minNode, maxNode]).range([width/15, height/6]);
-      var linkScale = d3.scale.linear().domain([minNode, maxNode]).range([width/4,height/2]);
+      var MinMaxNode = d3.extent(nodes, function(d) { return d.size; });
+      var bubbleScale = d3.scale.linear().domain(MinMaxNode).range([width/18, height/6]);
+      var linkScale = d3.scale.linear().domain(MinMaxNode).range([width/5,height/2]);
 
       // Restart the force layout.
       force
@@ -41,12 +40,8 @@
           .links(links)
           .linkStrength(0.6)
           .friction(0.9)
-          .linkDistance(function(d){
-            return linkScale(d.target.size);
-            console.log('d', linkScale(d.target.size));
-            return 150;
-          })
-          .charge(-1000)
+          .linkDistance(function(d){ return linkScale(d.target.size); })
+          .charge(-1500)
           .theta(0.1)
           .alpha(0.1)
           .start();
@@ -60,8 +55,7 @@
       // Enter any new links.
       link.enter().insert("line")
           .attr("class", function(d){
-            if(d.source.name == "flare") return "";
-            return "link";
+            return d.source.name == "flare" ? "" : "link";
           })
           .attr("x1", function(d) { return d.source.x; })
           .attr("y1", function(d) { return d.source.y; })
@@ -78,15 +72,11 @@
 
       node.enter().append("circle")
           .attr("class", function(d){
-            if(d.children || d._children)
-              return "node";
-            return "leaf";
+            return d.children || d._children ? "node" : "leaf";
           })
           .attr("cx", function(d) { return d.x; })
           .attr("cy", function(d) { return d.y; })
-          .attr("r", function(d) { 
-            return scale(d.size);
-          })
+          .attr("r", function(d) { return bubbleScale(d.size); })
           .style("fill", color)
           .on("click", click)
           .call(force.drag);
@@ -109,7 +99,7 @@
 
     // Color leaf nodes orange, and packages white or blue.
     function color(d) {
-      return d._children ? "red" : d.children ? "#BECDD5" : "white";
+      return d._children ? "#BECDD5" : d.children ? "#BECDD5" : "white";
     }
 
     // Toggle children on click.

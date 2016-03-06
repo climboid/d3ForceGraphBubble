@@ -1,3 +1,9 @@
+.link {
+  fill: none;
+  stroke: #002960;
+  stroke-width: 1.5px;
+}
+
 .node {
   cursor: pointer;
 }
@@ -12,11 +18,7 @@
   stroke-width: 2px;
 }
 
-.link {
-  fill: none;
-  stroke: #002960;
-  stroke-width: 1.5px;
-}
+
 
 .txtLabel{
   font-size: 20px;
@@ -24,7 +26,7 @@
   font-family: Verdana;
 }
 
-/*svg{
-  background:rgba(0,0,0,0.05);
+svg{
+  background:rgba(255,0,0,0.05);
   margin:0 auto;
-}*/
+}
