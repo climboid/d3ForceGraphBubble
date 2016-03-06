@@ -13,7 +13,7 @@ var width = 800;
     var link = svg.selectAll(".link"),
         node = svg.selectAll(".node");
 
-    d3.json("data.json", function(error, json) {
+    d3.json("./scripts/data.json", function(error, json) {
       if (error) throw error;
       root = json;
       update();
