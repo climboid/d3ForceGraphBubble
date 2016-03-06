@@ -1,0 +1,30 @@
+.node {
+  cursor: pointer;
+}
+
+.node:hover{
+  stroke: #DFC555;
+  stroke-width: 6px;
+}
+
+.leaf {
+  stroke: #002960;
+  stroke-width: 2px;
+}
+
+.link {
+  fill: none;
+  stroke: #002960;
+  stroke-width: 1.5px;
+}
+
+.txtLabel{
+  font-size: 20px;
+  color: black;
+  font-family: Verdana;
+}
+
+svg{
+  background:rgba(0,0,0,0.05);
+  margin:0 auto;
+}
