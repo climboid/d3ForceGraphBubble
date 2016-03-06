@@ -1,14 +1,10 @@
 {
- "name":"flare",
- "children": [
-  {
-    "name": "green", 
-    "size": 5731,
-    "children":[
-      {"name":"brown","size":0.5,"type":"leaf"},
-      {"name":"orange","size":45,"type":"leaf"},
-      {"name":"red","size":2080,"type":"leaf"}
-    ]
-  }
- ]
+  "name": "green", 
+  "size": 2625.5,
+  "children":[
+    {"name":"brown","size":0.5,"type":"leaf"},
+    {"name":"orange","size":45,"type":"leaf"},
+    {"name":"orange","size":500,"type":"leaf"},
+    {"name":"red","size":2080,"type":"leaf"}
+  ]
 }

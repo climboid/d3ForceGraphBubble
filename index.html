@@ -32,7 +32,8 @@
       var links = d3.layout.tree().links(nodes);
       var minNode = d3.min(nodes, function(d) { return d.size; });
       var maxNode = d3.max(nodes, function(d) { return d.size; });
-      var scale = d3.scale.linear().domain([minNode, maxNode]).range([50, 120]);
+      var scale = d3.scale.linear().domain([minNode, maxNode]).range([width/15, height/6]);
+      var linkScale = d3.scale.linear().domain([minNode, maxNode]).range([width/4,height/2]);
 
       // Restart the force layout.
       force
@@ -40,7 +41,11 @@
           .links(links)
           .linkStrength(0.6)
           .friction(0.9)
-          .linkDistance(150)
+          .linkDistance(function(d){
+            return linkScale(d.target.size);
+            console.log('d', linkScale(d.target.size));
+            return 150;
+          })
           .charge(-1000)
           .theta(0.1)
           .alpha(0.1)
@@ -80,8 +85,6 @@
           .attr("cx", function(d) { return d.x; })
           .attr("cy", function(d) { return d.y; })
           .attr("r", function(d) { 
-            if(d.name === "flare") return 0;
-            // console.log('scale', scale(d.size));
             return scale(d.size);
           })
           .style("fill", color)
@@ -106,7 +109,7 @@
 
     // Color leaf nodes orange, and packages white or blue.
     function color(d) {
-      return d._children ? "#BECDD5" : d.children ? "#BECDD5" : "white";
+      return d._children ? "red" : d.children ? "#BECDD5" : "white";
     }
 
     // Toggle children on click.
