@@ -39,6 +39,8 @@
           .alpha(0.1)
           .start();
 
+
+
       // Update the links…
       link = link.data(links, function(d) { return d.target.id; });
 
@@ -56,9 +58,7 @@
           .attr("y2", function(d) { return d.target.y; });
 
       // Update the nodes…
-      node = node.data(nodes, function(d) { 
-        return d.id; 
-      }).style("fill", color);
+      node = node.data(nodes, function(d) { return d.id; });
 
       // Exit any old nodes.
       node.exit().remove();
