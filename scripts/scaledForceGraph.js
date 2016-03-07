@@ -1,5 +1,5 @@
-var width = 800;
-    var height = 600;
+    var width = 1024;
+    var height = 768;
     var root;
 
     var force = d3.layout.force()
@@ -20,6 +20,7 @@ var width = 800;
     });
 
     function update() {
+
       var nodes = flatten(root);
       var links = d3.layout.tree().links(nodes);
       var MinMaxNode = d3.extent(nodes, function(d) { return d.size; });
@@ -75,7 +76,7 @@ var width = 800;
           .on("click", click)
           .call(force.drag);
 
-    }
+    }// end function
 
     //
     // centers all of the node and aligns them respectully
@@ -123,3 +124,30 @@ var width = 800;
       recurse(root);
       return nodes;
     }
+
+
+    //
+    // handle device rotation
+    //
+    // function doOnOrientationChange(){
+    //   switch(window.orientation) {
+    //     case -90:
+    //     case 90:
+    //     console.log('landscape');
+    //     width = 1024;
+    //     height = 768;
+    //     update();
+    //     break;
+    //   default:
+    //     width = 768;
+    //     height = 1024;
+    //     console.log('portrait');
+    //     update();
+    //     break;
+    //   }
+    // }
+
+    // window.addEventListener('orientationchange', doOnOrientationChange);
+
+    // // Initial execution if needed
+    // doOnOrientationChange();
