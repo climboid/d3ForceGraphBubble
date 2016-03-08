@@ -1,10 +1,61 @@
 {
-  "name": "Telnor", 
-  "size": 2625.5,
-  "children":[
-    {"name":"brown","size":0.5,"type":"leaf"},
-    {"name":"orange","size":45,"type":"leaf"},
-    {"name":"orange","size":500,"type":"leaf"},
-    {"name":"red","size":2080,"type":"leaf"}
-  ]
+ "name": "flare",
+ "children": [
+  {
+    "name": "BetweennessCentrality", 
+    "size": 1000,
+    "type":"root",
+    "children":[
+      {"name":"abc","size":8,"type":"leaf"},
+      {"name":"abc","size":17,"type":"leaf"},
+      {"name":"abc","size":21,"type":"leaf"}
+    ]
+  },
+  {
+    "name": "LinkDistance", 
+    "size": 1000,
+    "type":"root",
+    "children":[
+      {"name":"abc","size":32,"type":"leaf"},
+      {"name":"abc","size":25,"type":"leaf"},
+      {"name":"abc","size":89,"type":"leaf"},
+      {"name":"abc","size":105,"type":"leaf"},
+      {"name":"abc","size":34,"type":"leaf"},
+      {"name":"abc","size":45,"type":"leaf"},
+      {"name":"abc","size":56,"type":"leaf"},
+      {"name":"abc","size":67,"type":"leaf"},
+      {"name":"abc","size":78,"type":"leaf"}
+    ]
+  },
+  {
+    "name": "MaxFlowMinCut", 
+    "size": 1000,
+    "type":"root",
+    "children":[
+      {"name":"abc","size":90,"type":"leaf"},
+      {"name":"abc","size":76,"type":"leaf"},
+      {"name":"abc","size":24,"type":"leaf"}
+    ]
+  },
+  {
+    "name": "ShortestPaths", 
+    "size": 1000,
+    "type":"root",
+    "children":[
+      {"name":"abc","size":67,"type":"leaf"},
+      {"name":"abc","size":89,"type":"leaf"},
+      {"name":"abc","size":3,"type":"leaf"}
+    ]
+  },
+  {
+    "name": "SpanningTree", 
+    "size": 1000,
+    "type":"root",
+    "children":[
+      {"name":"abc","size":110,"type":"leaf"},
+      {"name":"abc","size":45,"type":"leaf"},
+      {"name":"abc","size":45,"type":"leaf"}
+    ]
+  }
+ ]
 }
